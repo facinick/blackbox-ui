@@ -1,19 +1,35 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
-
+import { Outlet } from 'react-router-dom';
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '../components/ui/navigation-menu';
 
 const AppLayout: React.FC = () => {
     return (
         <>
             <header>
-                <nav>
-                    <ul>
-                        <li><Link to="/dashboard">Dashboard</Link></li>
-                        <li><Link to="/holdings">Holdings</Link></li>
-                        <li><Link to="/positions">Positions</Link></li>
-                        <li><Link to="/balance">Balance</Link></li>
-                    </ul>
-                </nav>
+                <NavigationMenu>
+                    <NavigationMenuList>
+                        <NavigationMenuItem>
+                            <NavigationMenuLink to={'/dashboard'} className={navigationMenuTriggerStyle()}>
+                                Dashboard
+                            </NavigationMenuLink>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuLink to={'/holdings'} className={navigationMenuTriggerStyle()}>
+                                Holdings
+                            </NavigationMenuLink>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuLink to={'/positions'} className={navigationMenuTriggerStyle()}>
+                                Positions
+                            </NavigationMenuLink>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuLink to={'/balance'} className={navigationMenuTriggerStyle()}>
+                                Balance
+                            </NavigationMenuLink>
+                        </NavigationMenuItem>
+                    </NavigationMenuList>
+                </NavigationMenu>
             </header>
             <main>
                 <Outlet />
